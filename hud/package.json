@@ -1,6 +1,6 @@
 {
   "name": "ironnest-hud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "IronNest HUD — system hotkey pulldown display with remote web control",
   "author": "IronNest",
   "main": "main.js",
