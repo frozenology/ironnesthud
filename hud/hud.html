@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IronNest HUD</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hud" id="hud">
+
+    <div id="linkScreen">
+      <button type="button" class="btn-close" id="btnCloseLink" title="Close">✕</button>
+      <h2>IronNest HUD</h2>
+      <p>Enter the 6-digit Link Code from the website</p>
+      <input
+        type="text"
+        id="pinInput"
+        maxlength="6"
+        placeholder="000000"
+        autocomplete="off"
+        inputmode="numeric"
+      />
+      <button id="btnLink">Link HUD</button>
+      <div id="linkError"></div>
+    </div>
+
+    <div id="dataScreen">
+      <div class="top-bar">
+        <div class="title">IronNest · Firing Log</div>
+        <div class="link-status" id="linkStatus">
+          <span id="linkStatusText">Connecting...</span>
+          <button id="btnChangePin">Change</button>
+          <button type="button" class="btn-close" id="btnClose" title="Close">✕</button>
+        </div>
+      </div>
+
+      <div id="shotList" class="shot-list">
+        <div class="shot-empty">Waiting for shots from controller...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="controller.js"></script>
+  <script src="hud.js"></script>
+  <script src="hud-listener.js"></script>
+</body>
+</html>

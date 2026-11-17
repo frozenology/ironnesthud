@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Nest Fire Control · HUD Controller</title>
+
+  <!-- SEO / social -->
+  <meta name="description" content="Iron Nest fire control calculator and live HUD controller." />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="application-name" content="Iron Nest Fire Control" />
+  <meta property="og:title" content="Iron Nest Fire Control · HUD Controller" />
+  <meta property="og:description" content="Iron Nest fire control calculator and live HUD controller." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="android-chrome-512x512.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Iron Nest Calculation</h1>
+      </div>
+      <div class="nav-pin">
+        <span class="pin-label">Link</span>
+        <span id="pinDisplay" class="pin-code">------</span>
+        <a id="btnOpenHud" class="btn-renew" href="#" title="Open IronNest HUD and register this link code">🚀</a>
+        <button type="button" id="btnRenewPin" class="btn-renew" title="Generate new link code">🔄</button>
+        <span id="statusText" class="status">Waiting for HUD...</span>
+      </div>
+    </nav>
+
+    <div class="desktop-grid">
+      <!-- LEFT: inputs -->
+      <div class="calc-column">
+        <div class="plate">
+          <div class="rivet tl"></div><div class="rivet tr"></div>
+          <div class="rivet bl"></div><div class="rivet br"></div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="bearing">Bearing</label>
+              <input type="text" class="roll-input" id="bearing" inputmode="numeric" value="000.0" autocomplete="off" enterkeyhint="go" />
+              <div class="field-hint">degrees</div>
+            </div>
+            <div class="field">
+              <label for="distance">Target Distance</label>
+              <input type="text" class="roll-input" id="distance" inputmode="numeric" value="00.00" autocomplete="off" enterkeyhint="go" />
+              <div class="field-hint" id="meterHint">= 0000 m</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Powder Charges</label>
+            <div class="charge-row" id="chargeRow"></div>
+          </div>
+
+          <div class="field">
+            <label>Round Type</label>
+            <div class="charge-row" id="roundRow"></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="readout">
+            <div class="readout-label">Required Elevation</div>
+            <div class="readout-value" id="output">—</div>
+            <div class="readout-unit">degrees</div>
+          </div>
+
+          <button class="log-btn-big" id="logShotBtn">LOG SHOT</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: firing log -->
+      <div class="log-column">
+        <div class="plate history-plate">
+          <div class="rivet tl"></div><div class="rivet tr"></div>
+          <div class="rivet bl"></div><div class="rivet br"></div>
+          <div class="history-header">
+            <span class="readout-label" style="margin-bottom:0;">Firing Log</span>
+            <button class="clear-btn" id="clearBtn">CLEAR</button>
+          </div>
+          <div id="historyList" class="history-list">
+            <div class="history-empty">No shots logged yet.</div>
+          </div>
+          <div class="drag-hint">Logged shots are sent live to the HUD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="controller.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
